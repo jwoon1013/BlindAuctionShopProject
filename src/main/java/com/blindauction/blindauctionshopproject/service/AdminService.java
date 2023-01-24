@@ -75,8 +75,7 @@ public class AdminService {
         //2. 존재한다면 그 유저의 역할을 확인. user의 권한이 USER인 경우, SELLER 로 전환
         if (user.isUser()) {
                 user.updateUserToSeller();
-            }
-        if (user.isSeller()){
+        } else if (user.isSeller()){
             throw new IllegalArgumentException("해당 유저는 이미 SELLER 입니다");
         }
         else {
